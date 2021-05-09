@@ -1,7 +1,7 @@
 # Pandemix
 ## Simple Pandemic Graphic Simulation
 
-## Person states:
+## Person possible states:
 
 ![Person states](/images/States.png)
 

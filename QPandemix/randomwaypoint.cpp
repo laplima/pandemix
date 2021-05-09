@@ -65,10 +65,11 @@ void RandomWaypoint::move(Person &person)
 		qreal dy = m * qSin(theta);
 		person.moveBy(dx,dy);
 	} else {
-		if (person.state() == HealthState::DIAGNOSED)
-			choose_new_target(t,ISOLATION_DISTANCE);    // isolation
-		else {
-			if (person.rest())
+		if (person.state() == HealthState::DIAGNOSED) {
+			if (!person.resting())
+				choose_new_target(t,ISOLATION_DISTANCE);    // isolation
+		} else {
+			if (!person.resting())
 				choose_new_target(t);
 		}
 	}

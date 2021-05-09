@@ -43,7 +43,7 @@ public:
 	void randomize_position(const QRectF& r);
 	void randomize_position(qreal ox, qreal oy, qreal w, qreal h);	// origin-x, y, width, height
 	qreal distance(const Person& p) const { return ::distance(pos(),p.pos()); }
-	bool rest();		// keep resting?
+	bool resting();		// is resting?
 public:
 	bool change_direction;		// if true, change direction immediately
  };

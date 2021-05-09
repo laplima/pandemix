@@ -226,11 +226,14 @@ void Person::age()
 	}
 }
 
-bool Person::rest()
+bool Person::resting()
 {
 	--rest_;
-	bool go = (rest_ <= 0);
-	if (go)
+	bool is_resting = (rest_ > 0);
+	if (!is_resting) {
 		rest_ = QRandomGenerator::global()->bounded(default_rest);
-	return go;
+		if (state() == HealthState::DIAGNOSED)
+			rest_ *= 2;		// rest more if sick
+	}
+	return is_resting;
 }

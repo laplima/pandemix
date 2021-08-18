@@ -22,10 +22,10 @@ class MainWindow : public QMainWindow {
 public:
 	MainWindow(QWidget *parent = nullptr);
 	~MainWindow();
-private slots:
-	void on_actionStart_triggered();
-	void my_on_animate();
-	void on_actionStop_triggered();
+private slots:					// do not use "automatic" connections like on_...
+	void start_animation();
+	void animate();
+	void stop_animation();
 protected:
 	QGraphicsRectItem* create_bar(HealthState hs);
 	void update_bar(HealthState hs, int people);

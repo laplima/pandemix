@@ -85,7 +85,9 @@ MainWindow::MainWindow(QWidget *parent)
 	resize(wsz);
 
 	m_timer = new QTimer(this);
-	connect(m_timer, &QTimer::timeout, this, QOverload<>::of(&MainWindow::my_on_animate));
+	connect(m_timer, &QTimer::timeout, this, QOverload<>::of(&MainWindow::animate));
+	connect(ui->actionStart, &QAction::triggered, this, &MainWindow::start_animation);
+	connect(ui->actionStop, &QAction::triggered, this, &MainWindow::stop_animation);
 
 	// m_mobility = new RandomDirection{100, m_scene->sceneRect()};
 	m_mobility = new RandomWaypoint{POPULATION, m_scene->sceneRect()};
@@ -166,7 +168,7 @@ void MainWindow::update_bar(HealthState hs, int people)
 }
 
 
-void MainWindow::my_on_animate()
+void MainWindow::animate()
 {
 	++m_timelapse;
 	QStringList sl = QString::number(m_timelapse/static_cast<float>(ONE_DAY)).split(".");
@@ -232,14 +234,14 @@ void MainWindow::my_on_animate()
 	}
 }
 
-void MainWindow::on_actionStart_triggered()
+void MainWindow::start_animation()
 {
 	m_timelapse = 0;
 	m_timer->start(33);		// ~30fps
 }
 
 
-void MainWindow::on_actionStop_triggered()
+void MainWindow::stop_animation()
 {
 	m_timer->stop();
 }

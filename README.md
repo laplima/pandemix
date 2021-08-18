@@ -1,5 +1,5 @@
 # Pandemix
-## Simple Pandemic Graphic Simulation
+*Simple Pandemic Graphic Simulation*
 
 ## Person possible states:
 

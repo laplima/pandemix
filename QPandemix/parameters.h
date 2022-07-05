@@ -9,7 +9,7 @@ inline extern constexpr qreal ISOLATION_DISTANCE = 10.0;		// maximum distance wh
 
 // PERCENTAGES
 inline extern constexpr qreal INITIALLY_INFECTED = 1.0;			// percentage of initially infected people
-inline extern constexpr qreal DEATH_RATE = 6.0;					// death rate
+inline extern constexpr qreal DEATH_RATE = 3.0;					// death rate
 inline extern constexpr qreal DIAGNOSED_RATE = 50.0;			// estimate percentage of diagnosed people
 
 // DURATIONS (in days)
